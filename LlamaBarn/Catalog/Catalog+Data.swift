@@ -12,6 +12,7 @@ extension Catalog {
     qwen35Small,
     qwen35Medium,
     qwen36,
+    uQwen36,
     nemotronNano3,
     ministral3,
     glm47,
