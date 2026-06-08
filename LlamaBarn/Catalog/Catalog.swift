@@ -39,11 +39,16 @@ enum Catalog {
     let isFullPrecision = build.downloadUrl == size.build.downloadUrl
 
     // Generate ID from family name + size, normalized to lowercase with dashes.
-    // Quantized builds get a "-q4" suffix to distinguish them.
+    // Quantized builds get a quantization suffix to distinguish them (e.g. "-q4",
+    // "-bf16"). The suffix is the compact quantization label, lowercased — for the
+    // single-Q4 builds this resolves to "-q4", preserving existing ids.
     let baseId = "\(family.name) \(size.name)"
       .lowercased()
       .replacingOccurrences(of: " ", with: "-")
-    let id = isFullPrecision ? baseId : "\(baseId)-q4"
+    let id =
+      isFullPrecision
+      ? baseId
+      : "\(baseId)-\(Format.quantization(build.quantization).lowercased())"
 
     return CatalogEntry(
       id: id,

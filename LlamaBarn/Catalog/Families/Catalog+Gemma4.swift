@@ -68,6 +68,43 @@ extension Catalog {
         ]
       ),
       ModelSize(
+        name: "12B",
+        parameterCount: 11_907_350_576,
+        releaseDate: date(2026, 6, 3),
+        ctxWindow: 262_144,
+        ctxBytesPer1kTokens: 134_217_728,
+        mmproj: URL(
+          string:
+            "https://huggingface.co/ggml-org/gemma-4-12B-it-GGUF/resolve/main/mmproj-gemma-4-12B-it-bf16.gguf"
+        )!,
+        build: ModelBuild(
+          quantization: "Q8_0",
+          fileSize: 12_669_645_728,
+          downloadUrl: URL(
+            string:
+              "https://huggingface.co/ggml-org/gemma-4-12B-it-GGUF/resolve/main/gemma-4-12B-it-Q8_0.gguf"
+          )!
+        ),
+        quantizedBuilds: [
+          ModelBuild(
+            quantization: "BF16",
+            fileSize: 23_832_064_928,
+            downloadUrl: URL(
+              string:
+                "https://huggingface.co/ggml-org/gemma-4-12B-it-GGUF/resolve/main/gemma-4-12B-it-bf16.gguf"
+            )!
+          ),
+          ModelBuild(
+            quantization: "Q4_K_M",
+            fileSize: 7_381_382_048,
+            downloadUrl: URL(
+              string:
+                "https://huggingface.co/ggml-org/gemma-4-12B-it-GGUF/resolve/main/gemma-4-12B-it-Q4_K_M.gguf"
+            )!
+          )
+        ]
+      ),
+      ModelSize(
         name: "E4B",
         parameterCount: 7_996_156_490,
         releaseDate: date(2026, 4, 1),
