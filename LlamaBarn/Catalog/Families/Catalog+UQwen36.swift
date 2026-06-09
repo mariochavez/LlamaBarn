@@ -31,12 +31,15 @@ extension Catalog {
             "https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF/resolve/main/mmproj-F16.gguf"
         )!,
         mmprojLocalFilename: "Qwen3.6-35B-A3B-mmproj-F16.gguf",
+        // Primary build is Unsloth's dynamic 8-bit (UD-Q8_K_XL) so the U-Qwen
+        // family serves UD-flavored weights by default; plain Q8_0 stays as a
+        // slightly smaller non-dynamic fallback in quantizedBuilds below.
         build: ModelBuild(
-          quantization: "Q8_0",
-          fileSize: 36_903_140_320,
+          quantization: "UD-Q8_K_XL",
+          fileSize: 38_500_000_000,
           downloadUrl: URL(
             string:
-              "https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF/resolve/main/Qwen3.6-35B-A3B-Q8_0.gguf"
+              "https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF/resolve/main/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf"
           )!
         ),
         quantizedBuilds: [
@@ -137,11 +140,11 @@ extension Catalog {
             )!
           ),
           ModelBuild(
-            quantization: "UD-Q8_K_XL",
-            fileSize: 38_500_000_000,
+            quantization: "Q8_0",
+            fileSize: 36_903_140_320,
             downloadUrl: URL(
               string:
-                "https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF/resolve/main/Qwen3.6-35B-A3B-UD-Q8_K_XL.gguf"
+                "https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF/resolve/main/Qwen3.6-35B-A3B-Q8_0.gguf"
             )!
           ),
         ]
